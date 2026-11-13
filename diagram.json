@@ -1,0 +1,69 @@
+{
+  "version": 1,
+  "author": "Saloni Kumari",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "ultrasonic1",
+      "top": -142.5,
+      "left": -23.3,
+      "attrs": { "distance": "100" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led_left_pwm",
+      "top": 210,
+      "left": 230,
+      "attrs": { "color": "green", "label": "L-PWM" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led_right_pwm",
+      "top": 210,
+      "left": 280,
+      "attrs": { "color": "green", "label": "R-PWM" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led_left_dir",
+      "top": 270,
+      "left": 230,
+      "attrs": { "color": "yellow", "label": "L-DIR" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led_right_dir",
+      "top": 270,
+      "left": 280,
+      "attrs": { "color": "yellow", "label": "R-DIR" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn_estop",
+      "top": 150.2,
+      "left": -115.2,
+      "attrs": { "color": "red", "label": "E-STOP" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "ultrasonic1:VCC", "esp:5V", "red", [] ],
+    [ "ultrasonic1:GND", "esp:GND.2", "black", [] ],
+    [ "ultrasonic1:TRIG", "esp:5", "green", [] ],
+    [ "ultrasonic1:ECHO", "esp:18", "blue", [] ],
+    [ "esp:25", "led_left_pwm:A", "green", [] ],
+    [ "led_left_pwm:C", "esp:GND.3", "black", [] ],
+    [ "esp:26", "led_right_pwm:A", "green", [] ],
+    [ "led_right_pwm:C", "esp:GND.3", "black", [] ],
+    [ "esp:27", "led_left_dir:A", "yellow", [] ],
+    [ "led_left_dir:C", "esp:GND.3", "black", [] ],
+    [ "esp:14", "led_right_dir:A", "yellow", [] ],
+    [ "led_right_dir:C", "esp:GND.3", "black", [] ],
+    [ "btn_estop:1.l", "esp:4", "red", [] ],
+    [ "btn_estop:2.l", "esp:GND.1", "black", [] ]
+  ],
+  "dependencies": {}
+}
