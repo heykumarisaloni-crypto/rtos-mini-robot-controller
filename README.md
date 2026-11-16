@@ -5,8 +5,7 @@ A multitasking robot controller built with FreeRTOS on ESP32.
 
 **Live simulation:** https://wokwi.com/projects/480540360623898625
 
-## Demo
-[Watch the demo video](demo.mp4)
+
 
 ## Features
 - Ultrasonic obstacle detection (HC-SR04)
