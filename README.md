@@ -42,20 +42,6 @@ A multitasking mini robot controller built on **ESP32** using **FreeRTOS**, simu
 | Motor | 2 | Reads command, sets PWM and direction |
 | Telemetry | 1 | Prints status on Serial every 500 ms |
 
-### Data Flow
-```
-Sensor Task --distanceQueue--> Control Task --commandQueue--> Motor Task
-                                    |
-                                    +--statusQueue--> Telemetry Task
-
-Button --ISR--> buttonSem --> EStop Task
-```
-
-- `distanceQueue` : sensor to control
-- `commandQueue` : control to motor
-- `statusQueue` : control to telemetry (length 1, `xQueueOverwrite` keeps only the latest status)
-- `buttonSem` : ISR to EStop task
-
 ## Sample Serial Output
 ```
 {"dist":42.3,"cmd":"FORWARD","estop":false}
