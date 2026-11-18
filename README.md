@@ -43,13 +43,13 @@ A multitasking mini robot controller built on **ESP32** using **FreeRTOS**, simu
 | Telemetry | 1 | Prints status on Serial every 500 ms |
 
 ## Sample Serial Output
-```
+
 {"dist":42.3,"cmd":"FORWARD","estop":false}
 {"dist":18.0,"cmd":"SLOW","estop":false}
 {"dist":7.5,"cmd":"TURN","estop":false}
 >>> EMERGENCY STOP
 {"dist":7.5,"cmd":"STOP","estop":true}
-```
+
 
 ## How to Run
 1. Open the Wokwi link above.
